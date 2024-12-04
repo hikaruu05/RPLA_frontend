@@ -1,36 +1,33 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+### Terraform ###
+# Local .terraform directories
+**/.terraform/*
 
-# dependencies
-node_modules/
+# .tfstate files
+*.tfstate
 
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
+# Crash log files
+crash.log
 
-# Native
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
+# Ignore any .tfvars files that are generated automatically for each Terraform run. Most
+# .tfvars files are managed as part of configuration and so should be included in
+# version control.
+#
+# example.tfvars
 
-# Metro
-.metro-health-check*
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
 
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
+# Include override files you do wish to add to version control using negated pattern
+# !example_override.tf
 
-# macOS
-.DS_Store
-*.pem
+# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+# example: *tfplan*
 
-# local env files
-.env*.local
+# End of https://www.toptal.com/developers/gitignore/api/terraform
 
-# typescript
-*.tsbuildinfo
+# node #
+node_modules

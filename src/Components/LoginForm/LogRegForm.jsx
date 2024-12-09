@@ -101,7 +101,7 @@ const LoginForm = () => {
               </label>
               <a
             href="/remember-forgot" onClick={(e) => {e.preventDefault();
-                // Add your forgot password logic here
+                
                 console.log('Forgot password clicked');
             }}
             className="clickable-text">

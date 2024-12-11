@@ -1,0 +1,91 @@
+/* App.css */
+
+/* Warna tema utama */
+:root {
+  --primary-color: #1E90FF; /* Warna biru utama */
+  --secondary-color: #F0F8FF; /* Warna latar terang */
+  --text-color: #ffffff; /* Warna teks putih */
+  --text-dark: #333333; /* Warna teks gelap */
+  --hover-color: #4682B4; /* Warna hover */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+nav {
+  background-color: var(--primary-color);
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: var(--hover-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+.container {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 800px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}

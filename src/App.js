@@ -1,11 +1,17 @@
 import React from 'react';
-import LoginForm from './Components/LoginForm/LogRegForm'; // Assuming LoginForm.js is in the same directory
+import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import UserDashboard from './components/UserDashboard';
 
 function App() {
   return (
-    <div>
-      <LoginForm />
-    </div>
+    <Router>
+      <Routes>
+        {/* Redirect dari root ke User Dashboard */}
+        <Route path="/" element={<Navigate to="/user" />} />
+        <Route path="/user/*" element={<UserDashboard />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginForm.css';
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import API_URL from '../../api';
@@ -10,6 +11,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,8 +35,22 @@ const LoginForm = () => {
         }
 
         const data = await response.json();
+
+        // Save the token and role in localStorage or cookies
+      localStorage.setItem('authToken', data.token);
+      localStorage.setItem('userRole', data.role);
+
         console.log('Success:', data);
         alert(isRegisterMode ? 'Registration successful!' : 'Login successful!');
+
+        // Redirect based on role
+      if (data.role === 'admin') {
+        navigate('/dashboard');
+      } else if (data.role === 'user') {
+        navigate('/dashboarduser');
+      } else {
+        throw new Error('Unknown user role');
+      }
     } catch (error) {
         console.error('Error:', error.message);
         setError(error.message);

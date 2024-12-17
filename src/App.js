@@ -1,17 +1,25 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import UserDashboard from './components/UserDashboard';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import LogRegform from "./components/LoginForm/LogRegForm"
+import Dashboard from "./pages/Dashboard";
+import Upload from "./pages/Upload";
+import Users from "./pages/Users";
+import DashboardUser from "./components/Users/PagesUsers/DashboardUser";
+import CreateUser from "./components/Users/PagesUsers/CreateUser"
 
 function App() {
   return (
-    <Router>
+    <div>
+      <BrowserRouter>
       <Routes>
-        {/* Redirect dari root ke User Dashboard */}
-        <Route path="/" element={<Navigate to="/user" />} />
-        <Route path="/user/*" element={<UserDashboard />} />
+        <Route path="/" element={<LogRegform/>} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/dashboarduser" element={<DashboardUser />} />
+        <Route path="/createuser" element={<CreateUser />} />
       </Routes>
-    </Router>
+      </BrowserRouter>
+    </div>
   );
 }
 

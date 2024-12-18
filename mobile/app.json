@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "project_rpl",
-    "slug": "project_rpl",
+    "name": "project_rpl123",
+    "slug": "project_rpl123",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.project_rpl123"
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -15,6 +15,11 @@ import * as DocumentPicker from 'expo-document-picker';
 import * as FileSystem from 'expo-file-system';
 
 
+const openPDF = (file) => {
+  navigation.navigate('PDFViewer', { fileUri: file.uri });
+};
+
+
 const PDFFilePicker = ({ onFileSelect }) => {
   const [fileError, setFileError] = useState('');
 
@@ -339,12 +344,19 @@ const RegisterScreen = ({ onRegister, onBackToLogin }) => {
 // Dashboard Screen
 const DashboardScreen = ({ username, role, onLogout }) => {
   const [isTemplateModalVisible, setIsTemplateModalVisible] = useState(false);
+  const [templates, setTemplates] = useState([
+    // Template default
+  ]);
   const dashboardTitle = role === 'admin' ? 'Anda Adalah Admin' : 'Anda Adalah User';
 
   const handleTemplateUpload = (templateData) => {
+    const newTemplate = {
+      id: templates.length + 1,
+      name: templateData.name
+    };
+
+    setTemplates([...templates, newTemplate]);
     
-    // Implementasi logika unggahan template
-    console.log('Template uploaded:', templateData);
     Alert.alert(
       'Template Upload', 
       `Template "${templateData.name}" uploaded successfully`
@@ -382,7 +394,7 @@ const DashboardScreen = ({ username, role, onLogout }) => {
             </TouchableOpacity>
           </View>
           <View style={styles.projectList}>
-            <Text style={styles.projectItem}>1. Prak_tbd</Text>
+            <Text style={styles.projectItem}></Text>
           </View>
         </View>
         
@@ -396,6 +408,15 @@ const DashboardScreen = ({ username, role, onLogout }) => {
               <Text style={styles.createProjectButtonText}>Buat Template</Text>
             </TouchableOpacity>
           )}
+          
+          {templates.map((template, index) => (
+            <View key={template.id} style={styles.templateItem}>
+              <Text style={styles.templateItemText}>
+                {index + 1}. {template.name}
+              </Text>
+            </View>
+          ))}
+          
           <TouchableOpacity style={styles.createProjectButton}>
             <Text style={styles.createProjectButtonText}>Buat Project</Text>
           </TouchableOpacity>
